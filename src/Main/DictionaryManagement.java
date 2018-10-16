@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public  class DictionaryManagement extends Dictionary {
-     public static List<String> addup=new ArrayList<>();
-
+     public static List<String> add_up =new ArrayList<>();
+     public static List<String> removeout=new ArrayList<>();
     /*
     public void insertFromCommandline() {
         array = new ArrayList<>();
@@ -21,7 +21,7 @@ public  class DictionaryManagement extends Dictionary {
             i++;
         }
     } */
-    public static void showAllWords()
+    /*public static void showAllWords()
     {
         for(int i=0;i<array.size();i++)
         {
@@ -29,36 +29,48 @@ public  class DictionaryManagement extends Dictionary {
            // System.out.println(i+1+"\t|"+getword_.print());}
 
             System.out.println(array.get(i).getWord_target() + " " + array.get(i).getWord_explain());}
-    }
+    }*/
     public static  String dictionaryLookup(String wordToLookup){
         for(int i=0;i<array.size();i++) {
 
-            if (array.get(i).getWord_target().contains(wordToLookup)) {
+            if (array.get(i).getWord_target().equals(wordToLookup)) {
                 return array.get(i).getWord_explain();
             }
-            //if (array.get(i).getWord_target().equals(wordToLookup)) return array.get(i).getWord_explain();
         }
 
         return "";
     }
-
-    public static void  removeWordFromDitionary(String id)
+    public static List<String> addmoreword(String addword_target,String addword_explain)
+    {
+        Word addnewword=new Word(addword_target,addword_explain);
+        array.add(addnewword);
+        add_up.add(addnewword.getWord_target());
+        return add_up;
+    }
+    public static List<String> removeWordFromDitionary(String id)
     {
 
         for(int i=array.size()-1;i>=0;i--) {
             Word word = array.get(i);
             String removing=word.getWord_target();
-            if (removing.equals(id)) {
+            if (removing.toLowerCase().equals(id.toLowerCase())) {
                 array.remove(i);
             }
+            else
+            {
+                removeout.add(array.get(i).getWord_target());
+            }
+            Collections.sort(removeout);
+
         }
+        return removeout;
     }
     public static void InsertFromFile() throws IOException {
         //FileReader file=new FileReader(S);
         Scanner sc = null;
         try {
 
-            sc = new Scanner(new File("dictionaries.txt"));
+            sc = new Scanner(new File("src/Database/dictionaries.txt"));
 
             while (sc.hasNext()) {
                 String word = sc.next();
@@ -79,12 +91,12 @@ public  class DictionaryManagement extends Dictionary {
     public static void dictionaryExportToFile()
     {
         try{
-            FileWriter write=new FileWriter("dictionaries.txt");
+            FileWriter write=new FileWriter("src/Database/dictionaries.txt");
             Writer output=new BufferedWriter(write);
             for(int i=0;i<array.size();i++ )
             {
                 Word outfile=array.get(i);
-                output.write(outfile.getWord_target()+"\t"+outfile.getWord_explain()+"\n");
+                output.write(outfile.getWord_target()+outfile.getWord_explain()+"\n");
             }
             output.close();
         } catch (IOException e) {
@@ -99,12 +111,12 @@ public  class DictionaryManagement extends Dictionary {
 
                 if(array.get(i).getWord_target().toLowerCase().contains(wordSearch.toLowerCase()))
                 {
-                    addup.add(array.get(i).getWord_target());
+                    add_up.add(array.get(i).getWord_target());
                 }
                 else
                     continue;
             }
-            return addup;
+            return add_up;
 
     }
 }
