@@ -6,17 +6,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public  class DictionaryManagement extends Dictionary {
-     public static List<String> add_up =new ArrayList<>();
-     public static List<String> removeout=new ArrayList<>();
+    public static List<String> add_up =new ArrayList<>();
+    public static List<String> removeout=new ArrayList<>();
     /*
     public void insertFromCommandline() {
         array = new ArrayList<>();
         Scanner input = new Scanner(System.in);
         int s = input.nextInt();
         int i = 0;
-
         while (i < s) {
-
             array.add(word_);
             i++;
         }
@@ -27,7 +25,6 @@ public  class DictionaryManagement extends Dictionary {
         {
             //Word getword_=array.get(i);
            // System.out.println(i+1+"\t|"+getword_.print());}
-
             System.out.println(array.get(i).getWord_target() + " " + array.get(i).getWord_explain());}
     }*/
     public static  String dictionaryLookup(String wordToLookup){
@@ -74,6 +71,7 @@ public  class DictionaryManagement extends Dictionary {
 
             while (sc.hasNext()) {
                 String word = sc.next();
+                String space=sc.next();
                 String word_mean = sc.nextLine();
                 array.add(new Word(word, word_mean));
             }
@@ -82,8 +80,6 @@ public  class DictionaryManagement extends Dictionary {
             }
             sc.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -105,18 +101,18 @@ public  class DictionaryManagement extends Dictionary {
     }
     public static List<String> dictionarySearcher(String wordSearch) {
 
-            for(int i =0; i < array.size(); i++)
-            {
-                //wordSearch = wordSearch + input.next();
+        for(int i =0; i < array.size(); i++)
+        {
+            //wordSearch = wordSearch + input.next();
 
-                if(array.get(i).getWord_target().toLowerCase().contains(wordSearch.toLowerCase()))
-                {
-                    add_up.add(array.get(i).getWord_target());
-                }
-                else
-                    continue;
+            if(array.get(i).getWord_target().toLowerCase().contains(wordSearch.toLowerCase()))
+            {
+                add_up.add(array.get(i).getWord_target());
             }
-            return add_up;
+            else
+                continue;
+        }
+        return add_up;
 
     }
 }

@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -15,10 +16,15 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
+import javax.speech.Engine;
+import javax.speech.Central;
+import javax.speech.synthesis.Synthesizer;
+import javax.speech.synthesis.SynthesizerModeDesc;
 
 
 public class ControlMain extends Dictionary implements Initializable {
@@ -32,7 +38,8 @@ public class ControlMain extends Dictionary implements Initializable {
     TextField searchField,addField_Target,addField_Explain ;//các index nhập ký tự
 
     @FXML
-    ListView listView = new ListView();//danh sách từ theo dạng list
+    Button sua;
+    public ListView listView = new ListView();//danh sách từ theo dạng list
     //click chuột của từ tiếng anh để hiện ra nghĩa
 
     public void clicked (MouseEvent e){//click chuột vào từ tiếng anh để hiện ra nghĩa
@@ -43,7 +50,7 @@ public class ControlMain extends Dictionary implements Initializable {
     {
         String engrisk=addField_Target.getText()+" ";
         String tiengvet=addField_Explain.getText();
-        if(event.getCode()==KeyCode.SHIFT)
+        if(event.getCode()==KeyCode.CONTROL)
         {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("HEY!");
@@ -91,7 +98,22 @@ public class ControlMain extends Dictionary implements Initializable {
                 DictionaryManagement.add_up.clear();
 
     }
-
+    public void Sua(MouseEvent event)
+    {
+        try
+        {
+            System.setProperty("freetts.voices","com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+            Central.registerEngineCentral("com.sun.speech.freetts.jsapi.FreeTTSEngineCentral");
+            Synthesizer syn=Central.createSynthesizer(new SynthesizerModeDesc(Locale.US));
+            syn.allocate();
+            syn.resume();
+            syn.speakPlainText(listView.getSelectionModel().getSelectedItem().toString(),null);
+            syn.waitEngineState(Synthesizer.QUEUE_EMPTY);
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -102,7 +124,7 @@ public class ControlMain extends Dictionary implements Initializable {
             e.printStackTrace();
         }
         Collections.sort(listWordTarget);
-        ObservableList <String> data = FXCollections.observableArrayList(listWordTarget);
+        ObservableList<String> data = FXCollections.observableArrayList(listWordTarget);
         listView.setItems(data);
     }
 
