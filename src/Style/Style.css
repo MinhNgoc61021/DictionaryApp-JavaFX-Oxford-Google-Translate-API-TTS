@@ -1,0 +1,70 @@
+.root
+{
+    -fx-background-color: aliceblue;
+}
+.list-view{
+    -fx-background-color: aliceblue ;
+    -fx-font-size: 20;
+}
+#speaker
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-image: url("/Style/if_198High_loud_music_on_sound_speaker_volume_1886185.jpg");
+    -fx-background-color:aliceblue;
+
+}
+#speaker:hover
+{
+    -fx-background-radius: 30;
+    -fx-background-image: url("/Style/if_198High_loud_music_on_sound_speaker_volume_1886185.jpg");
+}
+#speaker:pressed
+{
+    -fx-background-radius: 30;
+    -fx-background-image: url("/Style/if_Accept_check_ok_success_tick_yes_1886180.jpg");
+
+}
+.text-field
+{
+    -fx-background-color: springgreen;
+    -fx-font-size: 20;
+    -fx-background-radius: 35;
+}
+.menu-bar
+{
+    -fx-background-color:aliceblue ;
+    -fx-font-size: 18;
+    -fx-font-style: normal;
+}
+.text-area{
+    -fx-background-color: aliceblue;
+    -fx-font-style: italic;
+    -fx-font-size: 20;
+}
+.menu-item {
+    -fx-background-color: aliceblue;
+
+}
+#speaker1
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-image: url("/Style/download.jpg");
+    -fx-background-color: aliceblue;
+}
+
+#speaker1:pressed
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-image: url("/Style/images.jpg");
+    -fx-background-color: lightskyblue ;
+}
+#speaker1:hover
+{
+    -fx-border-radius: 30;
+    -fx-background-radius:30;
+    -fx-background-color: lightskyblue;
+    -fx-background-image: url("/Style/images.jpg");
+}

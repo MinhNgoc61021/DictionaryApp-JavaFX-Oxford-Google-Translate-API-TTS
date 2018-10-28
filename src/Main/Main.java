@@ -1,3 +1,4 @@
+//Từ điển do Nguyễn Ngọc Minh và Lê Quang Phước làm
 package Main;
 
 import javafx.application.Application;
@@ -8,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import javax.imageio.IIOException;
@@ -18,10 +20,16 @@ import java.io.StringWriter;
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception{//hàm hiển thị giao diện trong runtime
         Parent root = FXMLLoader.load(getClass().getResource("../fxml/Dictionaryfx.fxml"));
         primaryStage.setTitle("Dictionary");
-        primaryStage.setScene(new Scene(root));
+        Scene scene=new Scene(root);
+        String css=Main.class.getResource("../Style/Style.css").toExternalForm();
+        Image image=new Image("/Style/icons8-dictionary-64.png");
+        primaryStage.getIcons().add(image);
+        scene.getStylesheets().add(css);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
@@ -63,9 +71,8 @@ public class Main extends Application {
 
         alert.showAndWait();
     }
-    public static void main(String[] args) throws IIOException {
+    public static void main(String[] args) throws IIOException {//hàm chạy chương chình
 
-        //DictionaryManagement.showAllWords();
         launch(args);
     }
 }

@@ -71,8 +71,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="TextToSpeech" level="project" />
-    <orderEntry type="library" name="cmu_time_awb" level="project" />
-    <orderEntry type="library" name="cmu_time_awb1" level="project" />
+    <orderEntry type="library" name="voice-dfki-poppy-hsmm-5.2" level="project" />
+    <orderEntry type="library" name="java-google-speech-api-V2.0" level="project" />
   </component>
 </module>

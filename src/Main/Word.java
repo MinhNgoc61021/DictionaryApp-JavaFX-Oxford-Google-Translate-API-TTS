@@ -10,9 +10,9 @@ import java.util.Scanner;
 
  public class Word {
 
-    private String word_target;
-    private String word_explain;
-    public Word(String word_target_,String word_explain_)
+    private String word_target;//từ tiếng anh
+    private String word_explain;//giải nghĩa từ
+    public Word(String word_target_,String word_explain_)//phương thưc/hàm khởi tạo từ
     {
         word_target=word_target_;
         word_explain=word_explain_;
@@ -20,10 +20,10 @@ import java.util.Scanner;
     public String getWord_target()
     {
         return word_target;
-    }
+    }//hàm trả lại từ
     public String getWord_explain()
     {
         return word_explain;
-    }
+    }//hàm trả lại nghĩa từ
 
 }
