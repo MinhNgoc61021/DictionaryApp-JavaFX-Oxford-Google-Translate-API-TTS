@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="java-google-speech-api-V2.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/GoogleAPI_Translate/java-google-speech-api-V2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
