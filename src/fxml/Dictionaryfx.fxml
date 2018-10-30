@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -43,43 +44,42 @@
             </HBox>
          </children>
       </VBox>
-      <HBox prefHeight="83.0" prefWidth="1000.0">
-         <children>
-            <MenuBar fx:id="menuBar" prefHeight="37.0" prefWidth="379.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Add New Word">
-                  <items>
-                        <MenuItem mnemonicParsing="false" text="New Word(English)">
-                           <graphic>
-                              <TextField fx:id="addField_Target" promptText="Add English Word">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font></TextField>
-                           </graphic>
-                        </MenuItem>
-                        <MenuItem mnemonicParsing="false" text="Meaning(English)(Press Shift)">
-                           <graphic>
-                              <TextField fx:id="addField_Explain" onKeyReleased="#add_word" promptText="Add Meaning">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font></TextField>
-                           </graphic>
-                        </MenuItem>
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#About" text="Information" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </children>
-      </HBox>
+      <MenuBar fx:id="menuBar" prefHeight="39.0" prefWidth="302.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Add New Word">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="New Word(English)">
+                     <graphic>
+                        <TextField fx:id="addField_Target" promptText="Add English Word">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </TextField>
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Meaning(English)(Press Shift)">
+                     <graphic>
+                        <TextField fx:id="addField_Explain" onKeyReleased="#add_word" promptText="Add Meaning">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </TextField>
+                     </graphic>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#About" text="Information" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ComboBox fx:id="ChangeLang" layoutX="943.0" onMouseClicked="#GGTranslate" prefHeight="39.0" prefWidth="98.0" promptText="Lang" />
    </children>
 </AnchorPane>

@@ -2,18 +2,20 @@ package GoogleTranslate;
 
 import com.darkprograms.speech.translator.GoogleTranslate;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class GoogleTTS_Translate {
-    public static String google_Tranlate(String target)//Hàm in ra từ dịch nghĩa qua api google translate
+    public static String google_Translate(String languagetarget,String target)//Hàm in ra từ dịch nghĩa qua api google translate
     {
         String target_translated="";
         try {
-            target_translated= GoogleTranslate.translate("vi",target);
+            target_translated= GoogleTranslate.translate(languagetarget,target);
+
 
         }catch (IOException e)
         {
-            System.out.println("Try Again");
+            JOptionPane.showMessageDialog(null, "No internet connection!");
         }
         return target_translated;
     }

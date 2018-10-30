@@ -88,7 +88,7 @@ public  class DictionaryManagement extends Dictionary {
         {
             //wordSearch = wordSearch + input.next();
 
-            if(array.get(i).getWord_target().toLowerCase().contains(wordSearch.toLowerCase()))
+            if(array.get(i).getWord_target().toLowerCase().startsWith(wordSearch.toLowerCase()))
             {
                 add_up.add(array.get(i).getWord_target());
             }

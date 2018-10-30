@@ -68,3 +68,7 @@
     -fx-background-color: lightskyblue;
     -fx-background-image: url("/Style/images.jpg");
 }
+#ChangeLang
+{
+    -fx-background-color: aliceblue;
+}
