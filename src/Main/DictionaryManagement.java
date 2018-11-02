@@ -24,7 +24,11 @@ public  class DictionaryManagement extends Dictionary {
     {
         Word addnewword=new Word(addword_target,addword_explain);
         array.add(addnewword);
-        add_up.add(addnewword.getWord_target());
+        for(int i=0;i<array.size();i++)
+        {
+            add_up.add(array.get(i).getWord_target());
+        }
+        
         return add_up;
     }
     public static List<String> removeWordFromDitionary(String id)//hàm xóa từ trả lại list tất cả các từ trừ từ đã xóa
